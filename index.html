@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З Днем Народження! 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                opacity: 0.3;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            color: #ff69b4;
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #ffb3d9;
+        }
+
+        .text-block {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #ff69b4;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .text-block h2 {
+            color: #ff69b4;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .text-block p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        .photo-block {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #ff69b4;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .photo-block h3 {
+            color: #ff69b4;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(255, 105, 180, 0.4);
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .placeholder {
+            background: linear-gradient(135deg, #2d1b2e 0%, #1a1a1a 100%);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff69b4;
+            font-size: 1.5em;
+            border-radius: 15px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tablets and small desktops */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 90%;
+                padding: 35px 15px;
+            }
+
+            .header h1 {
+                font-size: 3em;
+            }
+
+            .text-block {
+                padding: 35px;
+            }
+
+            .text-block h2 {
+                font-size: 1.8em;
+            }
+
+            .text-block p {
+                font-size: 1.1em;
+            }
+
+            .photo-block h3 {
+                font-size: 1.6em;
+            }
+        }
+
+        /* Tablets portrait */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .text-block {
+                padding: 25px;
+                margin-bottom: 40px;
+            }
+
+            .text-block h2 {
+                font-size: 1.6em;
+            }
+            
+            .text-block p {
+                font-size: 1em;
+                line-height: 1.6;
+            }
+
+            .photo-block {
+                padding: 25px;
+            }
+
+            .photo-block h3 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .photo-wrapper {
+                max-width: 100%;
+            }
+
+            .photo-wrapper img {
+                max-height: 400px;
+                object-fit: cover;
+            }
+        }
+
+        /* Mobile landscape */
+        @media (max-width: 640px) {
+            .container {
+                padding: 25px 12px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .text-block {
+                padding: 20px;
+                margin-bottom: 35px;
+            }
+
+            .text-block h2 {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+
+            .text-block p {
+                font-size: 0.95em;
+            }
+
+            .photo-block {
+                padding: 20px;
+            }
+
+            .photo-block h3 {
+                font-size: 1.3em;
+            }
+
+            .photo-wrapper img {
+                max-height: 350px;
+            }
+        }
+
+        /* Mobile portrait */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .header {
+                margin-bottom: 30px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+                line-height: 1.2;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            .text-block {
+                padding: 18px;
+                margin-bottom: 30px;
+                border-radius: 15px;
+            }
+
+            .text-block h2 {
+                font-size: 1.3em;
+                margin-bottom: 12px;
+            }
+
+            .text-block p {
+                font-size: 0.9em;
+                line-height: 1.5;
+            }
+
+            .photo-block {
+                padding: 18px;
+                border-radius: 15px;
+            }
+
+            .photo-block h3 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+
+            .photo-wrapper {
+                border-radius: 12px;
+            }
+
+            .photo-wrapper img {
+                max-height: 300px;
+                border-radius: 12px;
+            }
+
+            .heart {
+                font-size: 16px;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 360px) {
+            .container {
+                padding: 15px 8px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .header p {
+                font-size: 0.85em;
+            }
+
+            .text-block {
+                padding: 15px;
+            }
+
+            .text-block h2 {
+                font-size: 1.2em;
+            }
+
+            .text-block p {
+                font-size: 0.85em;
+            }
+
+            .photo-block {
+                padding: 15px;
+            }
+
+            .photo-block h3 {
+                font-size: 1.1em;
+            }
+
+            .photo-wrapper img {
+                max-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>З Днем Народження! 🎉</h1>
+            <p>Найкращій дівчині у світі ✨</p>
+        </div>
+
+        <div class="text-block">
+            <h2>Моя мила 💖</h2>
+            <p>
+                Вітаю тебе з цим особливим днем! Бажаю тобі безмежного щастя, 
+                здоров'я міцного, як наша любов, та усмішок, які освітлюють мій світ. 
+                Нехай кожен твій день буде сповнений радості, тепла і любові. 
+                Ти — найдивовижніша людина, яку я знаю, і я безмежно щасливий, 
+                що ти в мене є, моя королево! З любов'ю назавжди! 💕
+            </p>
+        </div>
+
+        <div class="photo-block">
+            <h3>Наш найкращий момент 📸</h3>
+            <div class="photo-wrapper">
+                <img src="" alt="Наше фото">
+                    Тут буде наше фото 💕<br>
+                    <small style="font-size: 0.6em; margin-top: 10px; display: block;">
+                        (Вставте ваше фото тут)
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartSymbols = ['💕', '💖', '💗', '💓', '💝', '❤️', '💜'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 300);
+
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+    </script>
+</body>
+</html>
